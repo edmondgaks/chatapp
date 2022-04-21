@@ -29,7 +29,12 @@ User.prototype.validate = function() {
     
 }
 
-
+User.prototype.login = function () {
+    this.cleanUp()
+    usersCollection.findOne({username: this.data.username}, (err,attemptedUser) => {
+        if(attemptedUser&& attemptedUser.password == this.data.password) {}
+    })
+}
 
 User.prototype.register = function() {
     this.cleanUp()

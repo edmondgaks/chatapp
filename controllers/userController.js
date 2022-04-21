@@ -4,8 +4,9 @@ exports.mustBeLoggedIn = function(req,res,next) {
     
 }
 
-exports.login = function() {
-    
+exports.login = function(req,res) {
+    let user = new User(req.body)
+    user.login()
 }
 
 exports.logout = function(req,res) {
@@ -20,7 +21,7 @@ exports.register = function(req,res) {
     } else {
         res.send("Congrats, there are no errors")
     }
-}
+} 
 
 
 exports.home = function(req,res) {
